@@ -1,21 +1,25 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "./Componts/Header";
+import HomePage from "./Pages/Homepage";
+import ContactPage from "./Pages/Contactpages";
+import Aboutpage from "./Pages/AboutPage";
+import Loginpage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/Registerpage";
+import NotFoundPage from "./Pages/Page404";
 
 export default function App() {
   return (
-    <div className="App bg-info">
-      <Header/>
+    <div className="App bg-white">
+    
       <Routes>
-        <Route path="/" element={<h1>Homa page </h1>}/>
+        <Route path="/" element={ <HomePage/>}/>
         <Route path="/Product" element={<h1>Product page </h1>}/>
         <Route path="/product/:id" element={<h1>products/:id</h1>} />
-        <Route path="/cart" element={<h1>cart page </h1>} />
-        <Route path="/login" element={<h1>login page </h1>} />
-        <Route path="/register" element={<h1>register page </h1>} />
+        <Route path="/login" element={<Loginpage/>} />
+        <Route path="/register" element={<RegisterPage/>} />
         <Route path="/profile" element={<h1>profile page </h1>} />
-        <Route path="/contact" element={<h1>contact page </h1>} />
-        <Route path="/about" element={<h1>about page </h1>} />
-        <Route path="/*" element={<h1>404</h1>}/> 
+        <Route path="/contact" element={<ContactPage/>} />
+        <Route path="/about" element={<Aboutpage/>} />
+        <Route path="/*" element={<NotFoundPage/>}/> 
       </Routes>
     </div>
   );
