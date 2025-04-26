@@ -37,19 +37,22 @@ export default function Footer() {
 
   <nav>
     <h6 className="footer-title">رقم التواصل : </h6>
-    <a className="link link-hover items-center flex gap-2"> <CiPhone className="text-2xl" />
-    01069103463</a>
+    <a className="link link-hover items-center flex gap-2">
+       <CiPhone className="text-2xl" />
+       01069103463</a>
     <h6 className="footer-title">السوشيال ميديا   : </h6>
-    <a className="link link-hover items-center flex gap-3"> 
-       <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <div className="link link-hover items-center flex gap-3"> 
+       <a href="https://www.facebook.com" >
   <FaFacebook className="text-2xl" />
 </a>
 
-<a href="https://wa.me/01069103463" target="_blank" rel="noopener noreferrer">
+<a href="https://wa.me/01069103463" >
   <FaWhatsapp className="text-3xl" />
 </a>
 
-    </a>
+    </div>
+
+
     <h6 className="footer-title"> العنوان  : </h6>
     <a className="link link-hover"> الجلاتمة-منطقة الصحارى</a>
    

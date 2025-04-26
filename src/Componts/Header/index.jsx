@@ -31,7 +31,7 @@ export default function Header() {
 
        <div  className="gap-7 p-1 pl-2 justify-around col-span-2  hidden lg:flex" >
         <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all rounded-xl px-2"  to={'/'}>الرئيسية</Link>
-        <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all"  to={'/Product'}>المنتجات</Link>
+        <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all"  to={'/Products'}>المنتجات</Link>
         <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" to={'/contact'}>تواصل معنا </Link>
         <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" to={'/about'}>من نحن</Link>
        </div>
@@ -49,7 +49,7 @@ export default function Header() {
     <ul className="menu bg-base-200 text-base-content min-h-full w-70 p-8  items-center gap-5 ">
       {/* Sidebar content here */}
       <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all"  to={'/'}>الرئيسية</Link>
-        <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all"  to={'/Product'}>المنتجات</Link>
+        <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all"  to={'/Products'}>المنتجات</Link>
         <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" to={'/contact'}>تواصل معنا </Link>
         <Link className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" to={'/about'}>من نحن</Link>
     </ul>

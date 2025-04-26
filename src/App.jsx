@@ -5,6 +5,9 @@ import Aboutpage from "./Pages/AboutPage";
 import Loginpage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/Registerpage";
 import NotFoundPage from "./Pages/Page404";
+import ProductsPage from "./Pages/ProdcutsPage";
+import ProdcutsTypeMain from "./Pages/prodcutsTypeMain";
+import ProductOnePage from "./Pages/productOnePage";
 
 export default function App() {
   return (
@@ -12,8 +15,9 @@ export default function App() {
     
       <Routes>
         <Route path="/" element={ <HomePage/>}/>
-        <Route path="/Product" element={<h1>Product page </h1>}/>
-        <Route path="/product/:id" element={<h1>products/:id</h1>} />
+        <Route path="/Products" element={<ProductsPage/>}/>
+        <Route path="/Products/:slug" element={<ProdcutsTypeMain/>} />
+        <Route path="/Products/:slug/:productId" element={<ProductOnePage/>} />
         <Route path="/login" element={<Loginpage/>} />
         <Route path="/register" element={<RegisterPage/>} />
         <Route path="/profile" element={<h1>profile page </h1>} />
