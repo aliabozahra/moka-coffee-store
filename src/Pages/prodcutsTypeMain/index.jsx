@@ -67,7 +67,7 @@ setSupData(datainfo);
                                        {
                                         supData && supData.map((el)=>{
                                           return(
-                                            <SupProduct key={el.documentId} name={el.prodcut_name} img={`${domain}${el.prodcut_imge.url}`}  short={el.short_description} weight={el.prodcut_weight} long={el.long_description} price={el.prodcut_price} id={el.documentId} slug={slug} /> 
+                                            <SupProduct key={el.documentId} name={el.prodcut_name} img={`${domain}${el.prodcut_imge.url}`}  short={el.short_description} weight={el.prodcut_weight} prodcut={el} price={el.prodcut_price} id={el.documentId} slug={slug} /> 
 
                                           )
                                         })

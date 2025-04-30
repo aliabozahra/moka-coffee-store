@@ -39,6 +39,8 @@ export default function Loginpage() {
                 let userData ={
                     userId : userInfo.documentId,
                     userName : userInfo.user_name,
+                    userPhone :userInfo.phone_Number,
+                    userData_login :userInfo.createdAt.split("T")[0],
                 }
                 sessionStorage.setItem("userdata",JSON.stringify( userData))
             Swal.fire({

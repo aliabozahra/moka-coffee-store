@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../Componts/Header'
 import Footer from '../../Componts/Footer'
 import { useNavigate, useParams } from 'react-router-dom'
-import { usedomain } from '../../store';
+import { useCart, usedomain } from '../../store';
 import axios from 'axios';
 import hero from "../../assets/imges/hand-1.jpg"
+import Swal from 'sweetalert2';
 
 export default function ProductOnePage() {
+   const {addToCart} =useCart();
     const navigate =useNavigate();
     const [ProductIfo,setProductIfo] =useState();
     const params =useParams();
@@ -25,7 +27,33 @@ export default function ProductOnePage() {
             navigate("/erorr")
             
         })
-    },[])
+    },[]);
+
+    const handelAddToCart = () => {
+    
+      if (ProductIfo) {
+        const obj = {
+          product_identifier: ProductIfo.documentId,
+          product_name: ProductIfo.prodcut_name,
+          product_price: ProductIfo.prodcut_price,
+          qty: 1,
+          product_img: `${domain}${ProductIfo.prodcut_imge.url}`,
+          product_weight: ProductIfo.prodcut_weight,
+        };
+        
+    
+        addToCart(obj);
+    
+        Swal.fire({
+          text: "تم اضافة المنتج إلى عربة التسوق بنجاح",
+          icon: "success",
+          timer: 1600,
+        });
+      }
+    };
+    
+
+
   return (
     <div className='w-full h-auto bb-info'>
          <Header/>
@@ -82,7 +110,7 @@ export default function ProductOnePage() {
               <button className="flex-1 py-4 rounded-lg border-2 border-[#C7B7A3] text-[#6D2932] font-semibold hover:bg-[#E8D8C4] transition">
                 اشتري الآن
               </button>
-              <button className="flex-1 py-4 rounded-lg bg-[#6D2932] text-white font-semibold hover:bg-[#5a212a] transition">
+              <button onClick={handelAddToCart}  className="flex-1 py-4 rounded-lg bg-[#6D2932] text-white font-semibold hover:bg-[#5a212a] transition">
                 أضف إلى العربة 
               </button>
             </div>

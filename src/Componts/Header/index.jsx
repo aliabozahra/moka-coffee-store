@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../assets/imges/mokacoffe.Logo.png'
 import { VscAccount } from "react-icons/vsc";
 import { FaCartShopping } from "react-icons/fa6";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Header() {
+  const navigate =useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,32 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const handelProfile=()=>{
+    let userInfo = JSON.parse(sessionStorage.getItem("userdata"))
+    if(userInfo){
+      navigate("/profile")
+    }else{
+      Swal.fire({
+        text:"يجب عليك تسجيل الدخول اولا لعرض بيانات حسابك",
+        icon:"error",
+        timer:1600,
+      })
+    }
+  }
+  const handelCart =()=>{
+    let userInfo = JSON.parse(sessionStorage.getItem("userdata"))
+    if(userInfo){
+      navigate("/ProductInCart")
+    }else{
+      Swal.fire({
+        text:"يجب عليك تسجيل الدخول اولا لعرض منتجاتك",
+        icon:"error",
+        timer:1600,
+      })
+    }
+
+  }
+
 
   return (
     
@@ -64,13 +92,18 @@ export default function Header() {
 
 
     <div className=" justify-center mt-4 gap-3 flex  col-span-3 lg:col-span-1  lg:absolute left-9 top-9 lg:gap-8 lg:p-0">
-      <div className="flex flex-row gap-1 justify-center">
+      <div onClick={handelProfile} className="flex flex-row gap-1 justify-center cursor-pointer">
       <VscAccount className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" />
       <p className="sm:text-xl md:text-2xl lg:text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all">حسابك</p>
       </div>
     
-    <div className="flex flex-row gap-1 justify-center">
-    <FaCartShopping className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all" />
+    <div onClick={handelCart} className="flex flex-row gap-1 justify-center cursor-pointer">
+      <div>
+      <FaCartShopping className="text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all relative" />
+      <span className="bg-red-800 rounded-4xl px-1 absolute top-5 md:top-7 lg:-top-5 lg:left-14">4</span>
+
+
+      </div>
     <p className="sm:text-xl md:text-2xl lg:text-2xl text-[#561C24] hover:text-[#E8D8C4] transition-all">طلباتك</p>
     </div>
     </div>

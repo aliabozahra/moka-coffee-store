@@ -8,6 +8,8 @@ import NotFoundPage from "./Pages/Page404";
 import ProductsPage from "./Pages/ProdcutsPage";
 import ProdcutsTypeMain from "./Pages/prodcutsTypeMain";
 import ProductOnePage from "./Pages/productOnePage";
+import ProfilePage from "./Pages/ProfilePage";
+import ProductInCartPage from "./Pages/ProductInCartPage";
 
 export default function App() {
   return (
@@ -20,7 +22,8 @@ export default function App() {
         <Route path="/Products/:slug/:productId" element={<ProductOnePage/>} />
         <Route path="/login" element={<Loginpage/>} />
         <Route path="/register" element={<RegisterPage/>} />
-        <Route path="/profile" element={<h1>profile page </h1>} />
+        <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/ProductInCart" element={<ProductInCartPage/>} />
         <Route path="/contact" element={<ContactPage/>} />
         <Route path="/about" element={<Aboutpage/>} />
         <Route path="/*" element={<NotFoundPage/>}/> 
